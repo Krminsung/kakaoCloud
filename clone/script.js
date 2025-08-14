@@ -108,14 +108,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 요소들 변수 할당 ---
     const backgroundSlider = document.getElementById('background-slider');
     const artistGrid = document.getElementById('artist-grid');
-    const calendarView = document.getElementById('calendar-view');
+    // const calendarView = document.getElementById('calendar-view');
     const pastShowsView = document.getElementById('past-shows-view');
     const modalContainer = document.getElementById('modal-container');
 
     // --- 상태 관리를 위한 변수들 ---
     let currentSlideIndex = 0; // 현재 배경 슬라이드의 인덱스
-    let calendarDate = new Date(); // 캘린더가 표시할 현재 날짜
-    let currentArtistEvents = []; // 캘린더에 표시할 특정 아티스트의 공연 목록
 
     // --- 앱 초기 실행 함수 ---
     function initialize() {
@@ -144,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const slides = document.querySelectorAll('.slide');
         if (slides.length === 0) return;
         slides[currentSlideIndex].classList.remove('active'); // 현재 슬라이드 숨기기
-        currentSlideIndex = (currentSlideIndex + 1) % slides.length; // 다음 인덱스로 이동 (마지막이면 처음으로)
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length; // 다음으로 이동
         slides[currentSlideIndex].classList.add('active'); // 다음 슬라이드 보이기
     }
 
@@ -211,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => pastShowsView.classList.add('show'), 10);
     }
 
-    // --- 팝업 보여주기 ---
+    // --- 팝업(현재창에서) 보여주기 ---
     function showModal(title, content) {
         document.getElementById('modal-title').textContent = title;
         document.getElementById('modal-body').innerHTML = content;
@@ -233,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (pastButton) showPastShows(pastButton.dataset.artistId);
         });
 
-        // 이전 공연 뷰 닫기 버튼
+        // 이전 공연 창 닫기 버튼
         document.getElementById('close-past-shows').addEventListener('click', () => {
             pastShowsView.classList.remove('show');
             setTimeout(() => {
@@ -244,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // --- 상단 네비게이션 메뉴 버튼들 ---
         document.getElementById('about-us-btn').addEventListener('click', () => {
-            showModal('About Us', '<p>저희는 아티스트와 팬들을 연결하는 플랫폼입니다. 이곳에서 좋아하는 아티스트의 최신 공연 소식을 확인하고, 지난 공연의 감동을 다시 느껴보세요.</p>');
+            showModal('About Us', '<p>저희는 아티스트와 팬들을 연결하는 플랫폼입니다</p>');
         });
 
         document.getElementById('regist-artist-btn').addEventListener('click', () => {
@@ -267,12 +265,12 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             showModal('아티스트 등록 요청', formContent);
 
-            // 폼 제출 이벤트 처리
+            // 폼 제출 처리
             document.getElementById('regist-artist-form').addEventListener('submit', (e) => {
                 e.preventDefault(); // 기본 제출 동작 방지
                 const modalBody = document.getElementById('modal-body');
                 modalBody.innerHTML = '<p style="text-align: center; font-weight: bold;">아티스트 등록이 성공적으로 요청되었습니다.</p>';
-                setTimeout(hideModal, 2000); // 2초 후 모달 닫기
+                setTimeout(hideModal, 2000); // 2초 후 창 
             });
         });
 

@@ -98,7 +98,7 @@ nav a:first-child {
     margin-left: 0;
 }
 nav a:hover {
-    color: #d1d5db; /* 호버 시 색상 변경 */
+    color: #d1d5db; /*  올리면 색상 바꾸기 */
 }
 
 /* 아티스트 목록 그리드 레이아웃 */
@@ -111,18 +111,11 @@ main#artist-grid {
     gap: 1rem;
 }
 
-/* 화면이 768px 이상일 때 3열로 변경 (반응형) */
-@media (min-width: 768px) {
-    main#artist-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
 /* --- 그리드 아이템 --- */
 .grid-item {
     position: relative;
     aspect-ratio: 1 / 1; /* 정사각형 비율 유지 */
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #000000;
     border-radius: 0.5rem;
     display: flex;
     align-items: center;
@@ -164,8 +157,8 @@ main#artist-grid {
 
 /* 그리드 아이템 내부 버튼 스타일 */
 .custom-btn {
-    background-color: white;
-    color: black;
+    background-color: #ffffff;
+    color: #000000;
     transition: all 0.3s ease;
     font-weight: 700;
     padding: 0.5rem 1.5rem;
@@ -177,21 +170,20 @@ main#artist-grid {
 }
 
 .custom-btn:hover {
-    background-color: black;
-    color: white;
-    border: 1px solid white;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #ffffff;
 }
 
 
-/* --- 뷰 오버레이 (캘린더, 이전 공연) --- */
-/* 화면 전체를 덮는 뷰의 기본 스타일 */
+/* 창 기본 스타일 */
 .view-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: #000000;
     padding: 2rem;
     z-index: 30;
     overflow-y: auto; /* 내용이 길어지면 스크롤 */
@@ -200,13 +192,13 @@ main#artist-grid {
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-/* 뷰가 나타날 때의 스타일 (애니메이션) */
+/* 창 나타날때 스타일*/
 .view-overlay.show {
     transform: translateY(0);
     opacity: 1;
 }
 
-/* 뷰 내부 컨텐츠의 최대 너비 및 중앙 정렬 */
+/* 팝업창 내부 컨텐츠의 최대 너비 및 중앙 정렬 */
 .view-content {
     max-width: 64rem;
     margin: 0 auto;
@@ -241,7 +233,7 @@ main#artist-grid {
     font-weight: 600;
 }
 
-/* 상세 정보 영역은 안보이게 하되 클릭하면 보이게 하기*/
+/* 상세 정보 영역은 안보이게 하기*/
 .past-show-details {
     margin-top: 1rem;
     padding-top: 1rem;
@@ -289,11 +281,11 @@ main#artist-grid {
     height: 100%;
 }
 
-/* 우측 상단 헤더 메뉴 클릭시 팝업창*/
+/* 우측 상단 헤더 메뉴 클릭시 창 열기*/
 .modal-backdrop {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #000000;
     z-index: 50; 
     display: flex;
     align-items: center;
@@ -303,8 +295,8 @@ main#artist-grid {
 
 /* 팝업창 스타일 */
 .modal-content {
-    background-color: #fff;
-    color: #000;
+    background-color: #ffffff;
+    color: #000000;
     border-radius: 0.5rem;
     padding: 2rem;
     max-width: 32rem;
@@ -346,7 +338,7 @@ form input, form select {
 
 form button {
     width: 100%;
-    color: #fff;
+    color: #ffffff;
     font-weight: 700;
     padding: 0.75rem 1rem;
     border-radius: 0.25rem;
@@ -354,14 +346,14 @@ form button {
 }
 
 .btn-green {
-    background-color: #22c55e;
+    background-color: #21b959;
 }
 .btn-green:hover {
-    background-color: #16a34a;
+    background-color: #117435;
 }
 .btn-purple {
-    background-color: #8b5cf6;
+    background-color: #744fc9;
 }
 .btn-purple:hover {
-    background-color: #7c3aed;
+    background-color: #4d209a;
 }
